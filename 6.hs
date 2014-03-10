@@ -20,3 +20,10 @@ https://projecteuler.net/problem=6
 
 answer :: Int -> Int
 answer n = div (3 * n * n * n * n + 2 * n * n * n - 3 * n * n - 2 * n) 12
+
+{-
+
+*Main> answer 100
+25164150
+
+-}

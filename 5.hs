@@ -40,3 +40,9 @@ really what I want is LCM(1,2,...,20). LCM is nestable: LCM(x, y, z) = LCM(x, LC
 -- is it cheating to use built-in LCM?
 answer = foldr lcm 1 [1..20]
 
+{-
+
+*Main> answer
+232792560
+
+-}
