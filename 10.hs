@@ -19,7 +19,7 @@ https://projecteuler.net/problem=10
 primes_below n = sieve [ 2 .. (n-1) ] where
 	sieve (x:xs)
 		| length xs == 0	= [ x ]
-		-- great suggestion from http://www.haskell.org/haskellwiki/Prime_numbers
+		-- great suggestion from http://www.haskell.org/haskellwiki/Prime_numbers 3.4.
 		| x * x >= n		= x : xs
 		| otherwise			= x : sieve (filter (\y -> (mod y x) /= 0) xs)
 
