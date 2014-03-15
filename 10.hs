@@ -11,16 +11,17 @@ https://projecteuler.net/problem=10
 -- I tried the naive listing of primes as in problem 3, but it was way too slow.
 -- Instead, try a sieve?
 
-primes_below n = sieve [ 2 .. (n-1) ]
-
 --import Data.List
 --sieve (x:xs)
 --	| length xs == 0	= [ x ]
 --	| otherwise			= x : sieve (xs \\ [ 2*x, 3*x .. (last xs) ])
 
-sieve (x:xs)
-	| length xs == 0	= [ x ]
-	| otherwise			= x : sieve (filter (\y -> (mod y x) /= 0) xs)
+primes_below n = sieve [ 2 .. (n-1) ] where
+	sieve (x:xs)
+		| length xs == 0	= [ x ]
+		-- great suggestion from http://www.haskell.org/haskellwiki/Prime_numbers
+		| x * x >= n		= x : xs
+		| otherwise			= x : sieve (filter (\y -> (mod y x) /= 0) xs)
 
 answer n = foldr (+) 0 (primes_below n)
 
